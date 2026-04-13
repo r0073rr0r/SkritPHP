@@ -1,0 +1,55 @@
+{
+  "name": "r0073rr0r/skritphp",
+  "description": "PHP port of Skrit Serbian slang transforms (satrovacki, utrovacki, leetrovacki) with Laravel support.",
+  "type": "library",
+  "license": "GPL-3.0-or-later",
+  "keywords": [
+    "serbian",
+    "satrovacki",
+    "utrovacki",
+    "leet",
+    "laravel",
+    "livewire",
+    "text-transform"
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-mbstring": "*",
+    "illuminate/support": "^10.0|^11.0|^12.0"
+  },
+  "require-dev": {
+    "orchestra/testbench": "^8.0|^9.0|^10.0",
+    "phpunit/phpunit": "^10.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Skrit\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Skrit\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Skrit\\Laravel\\SkritServiceProvider"
+      ],
+      "aliases": {
+        "Skrit": "Skrit\\Laravel\\Facades\\Skrit"
+      }
+    }
+  },
+  "scripts": {
+    "test": "phpunit --colors=always",
+    "test:coverage": "php -d xdebug.mode=coverage vendor/bin/phpunit --coverage-clover coverage.xml --colors=always",
+    "test:coverage:assert": "php tools/coverage-check.php coverage.xml 100 100 100",
+    "test:strict": [
+      "@test:coverage",
+      "@test:coverage:assert"
+    ]
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true
+}

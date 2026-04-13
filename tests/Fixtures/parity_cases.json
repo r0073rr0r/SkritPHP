@@ -1,0 +1,120 @@
+{
+  "cases": [
+    {
+      "description": "satro basic latin",
+      "input": "Zemun zakon matori",
+      "options": { "mode": "satro" },
+      "expected_text": "Munze konza torima",
+      "expected_mode": "satro"
+    },
+    {
+      "description": "satro basic cyrillic",
+      "input": "Земун закон матори",
+      "options": { "mode": "satro" },
+      "expected_text": "Мунзе конза торима",
+      "expected_mode": "satro"
+    },
+    {
+      "description": "satro mixed script",
+      "input": "Zemun закон matori",
+      "options": { "mode": "satro" },
+      "expected_text": "Munze конза torima",
+      "expected_mode": "satro"
+    },
+    {
+      "description": "utro basic latin",
+      "input": "bazen",
+      "options": { "mode": "utro" },
+      "expected_text": "uzenzabanje",
+      "expected_mode": "utro"
+    },
+    {
+      "description": "utro custom affixes",
+      "input": "bazen",
+      "options": {
+        "mode": "utro",
+        "utro_prefix": "x",
+        "utro_infix": "yy",
+        "utro_suffix": "zz"
+      },
+      "expected_text": "xzenyybazz",
+      "expected_mode": "utro"
+    },
+    {
+      "description": "utro cyrillic",
+      "input": "мачка значка ђаво",
+      "options": { "mode": "utro" },
+      "expected_text": "учказамање учказазнање увозађање",
+      "expected_mode": "utro"
+    },
+    {
+      "description": "leet over satro",
+      "input": "Zemun zakon matori",
+      "options": { "mode": "leet", "leet_base": "satro", "leet_density": 1.0 },
+      "expected_text": "M00n23 k0n24 70r1m4",
+      "expected_mode": "leet"
+    },
+    {
+      "description": "leet over utro",
+      "input": "bazen",
+      "options": { "mode": "leet", "leet_base": "utro", "leet_density": 1.0 },
+      "expected_text": "00zen24ban73",
+      "expected_mode": "leet"
+    },
+    {
+      "description": "leet full profile complexity",
+      "input": "a",
+      "options": {
+        "mode": "leet",
+        "leet_base": "satro",
+        "leet_profile": "full",
+        "leet_complexity": 1,
+        "min_word_length": 1
+      },
+      "expected_text": "/\\",
+      "expected_mode": "leet"
+    },
+    {
+      "description": "auto encode plain satro",
+      "input": "Zemun zakon matori",
+      "options": { "mode": "auto" },
+      "expected_text": "Munze konza torima",
+      "expected_mode": "satro"
+    },
+    {
+      "description": "auto decode satro",
+      "input": "munze konza",
+      "options": { "mode": "auto" },
+      "expected_text": "zemun zakon",
+      "expected_mode": "satro"
+    },
+    {
+      "description": "auto decode utro",
+      "input": "uzenzabanje",
+      "options": { "mode": "auto" },
+      "expected_text": "bazen",
+      "expected_mode": "utro"
+    },
+    {
+      "description": "auto route by detect_from leet",
+      "input": "Zemun zakon matori",
+      "options": { "mode": "auto", "detect_from": "M00n23 k0n24 70r1m4" },
+      "expected_text": "M00n23 k0n24 70r1m4",
+      "expected_mode": "leet"
+    },
+    {
+      "description": "auto decode leet satro",
+      "input": "m00n23 k0n24",
+      "options": { "mode": "auto" },
+      "expected_text": "zemun zakon",
+      "expected_mode": "leet"
+    },
+    {
+      "description": "auto decode leet utro",
+      "input": "00zen24ban73",
+      "options": { "mode": "auto" },
+      "expected_text": "bazen",
+      "expected_mode": "leet"
+    }
+  ]
+}
