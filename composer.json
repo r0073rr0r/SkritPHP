@@ -1,5 +1,6 @@
 {
   "name": "r0073rr0r/skritphp",
+  "version": "1.0.0",
   "description": "PHP port of Skrit Serbian slang transforms (satrovacki, utrovacki, leetrovacki) with Laravel support.",
   "type": "library",
   "license": "GPL-3.0-or-later",

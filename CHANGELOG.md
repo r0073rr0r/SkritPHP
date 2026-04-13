@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.0.0 - 2026-04-13
+- First stable public release of `SkritPHP`.
+- Includes full PHP port of Skrit core modules and unified router:
+  - `satrovacki`
+  - `utrovacki`
+  - `leetrovacki`
+  - `auto` mode detection and decode/encode routing
+- Includes Laravel integration:
+  - service provider
+  - facade
+  - publishable config
+- Includes Livewire usage example.
+- Includes full community standards and templates (`CODE_OF_CONDUCT`, `CONTRIBUTING`, `SECURITY`, `SUPPORT`, issue/PR templates).
+- CI/automation included (`CI workflow`, `Dependabot`).
+- Test suite and strict coverage gate enforced at 100%.
+- Merged PR #1: CI checkout action bumped to `actions/checkout@v6`.
+
 ## 0.1.1 - 2026-04-13
 - Added full community standards and governance docs:
   - `CODE_OF_CONDUCT.md`
