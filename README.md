@@ -11,7 +11,7 @@
 [![GitHub Issues](https://img.shields.io/github/issues/r0073rr0r/SkritPHP)](https://github.com/r0073rr0r/SkritPHP/issues)
 [![Last Commit](https://img.shields.io/github/last-commit/r0073rr0r/SkritPHP)](https://github.com/r0073rr0r/SkritPHP/commits/main)
 
-PHP port of Python `skrit` (`v0.5.x`) for Serbian slang-style text transforms:
+PHP port of Python `skrit` (`v0.6.0`) for Serbian slang-style text transforms:
 
 - `satrovacki`
 - `utrovacki`
@@ -57,7 +57,7 @@ use Skrit\Skrit;
 
 [$satro] = Skrit::encodeText('bazen', mode: 'satro'); // zenba
 [$utro] = Skrit::encodeText('bazen', mode: 'utro');   // uzenzabanje
-[$leet] = Skrit::encodeText('bazen', mode: 'leet', leetBase: 'satro'); // 23nb4
+[$leet] = Skrit::encodeText('bazen', mode: 'leet', leetBase: 'satro'); // 23n84
 ```
 
 ### Direct transformer classes
@@ -162,9 +162,17 @@ composer test:strict
 Included tests cover:
 
 - parity of core behavior against Python reference cases
+- invariant checks on a 963-word Serbian corpus across satro/utro/leet
 - satro/utro/leet transformer rules
 - unified auto router behavior
 - Laravel service container + facade integration
+
+## Linguistic Docs
+
+Bundled docs (hostable from this repo):
+
+- [Leetrovacki - Linguistic Analysis](docs/Leetrovacki%20-%20Linguistic%20Analysis.md)
+- [Литровачки - Лингвистичка Анализа](docs/%D0%9B%D0%B8%D1%82%D1%80%D0%BE%D0%B2%D0%B0%D1%87%D0%BA%D0%B8_-%D0%9B%D0%B8%D0%BD%D0%B3%D0%B2%D0%B8%D1%81%D1%82%D0%B8%D1%87%D0%BA%D0%B0_%D0%90%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0.md)
 
 ## License
 

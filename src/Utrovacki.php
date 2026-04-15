@@ -142,18 +142,35 @@ class Utrovacki extends Satrovacki
         }
 
         $core = StringUtils::substr($lowerWord, StringUtils::length($this->prefix), $end - StringUtils::length($this->prefix));
-        $splitAt = mb_strrpos($core, $this->infix, 0, 'UTF-8');
-        if ($splitAt === false) {
-            return null;
+        $infixLength = StringUtils::length($this->infix);
+        $searchStart = 0;
+
+        while (true) {
+            $splitAt = mb_strpos($core, $this->infix, $searchStart, 'UTF-8');
+            if ($splitAt === false) {
+                return null;
+            }
+
+            $splitPosition = (int) $splitAt;
+            $secondPart = StringUtils::substr($core, 0, $splitPosition);
+            $firstPart = StringUtils::substr($core, $splitPosition + $infixLength);
+
+            if ($secondPart !== '' || $firstPart !== '') {
+                $candidate = $firstPart . $secondPart;
+                $candidateLength = StringUtils::length($candidate);
+                $candidateSplit = $this->_findSplitIndex($candidate);
+
+                $isNormal = $candidateSplit > 0
+                    && $candidateSplit === StringUtils::length($firstPart)
+                    && $candidateSplit < $candidateLength;
+                $isDegenerate = $firstPart === '' && $candidateSplit >= $candidateLength;
+
+                if ($isNormal || $isDegenerate) {
+                    return [$firstPart, $secondPart];
+                }
+            }
+
+            $searchStart = $splitPosition + 1;
         }
-
-        $secondPart = StringUtils::substr($core, 0, (int) $splitAt);
-        $firstPart = StringUtils::substr($core, (int) $splitAt + StringUtils::length($this->infix));
-
-        if ($secondPart === '' && $firstPart === '') {
-            return null;
-        }
-
-        return [$firstPart, $secondPart];
     }
 }

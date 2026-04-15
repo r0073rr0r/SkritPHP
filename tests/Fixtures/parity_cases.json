@@ -55,6 +55,13 @@
       "expected_mode": "leet"
     },
     {
+      "description": "leet over satro updated b/g mapping",
+      "input": "bazen Beograd",
+      "options": { "mode": "leet", "leet_base": "satro", "leet_density": 1.0 },
+      "expected_text": "23n84 6r4d830",
+      "expected_mode": "leet"
+    },
+    {
       "description": "leet over utro",
       "input": "bazen",
       "options": { "mode": "leet", "leet_base": "utro", "leet_density": 1.0 },

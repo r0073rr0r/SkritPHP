@@ -201,15 +201,33 @@ class Satrovacki
     public function _findSplitIndex(string $word): int
     {
         $length = StringUtils::length($word);
+        $seenConsonant = false;
+        $initialVowelEnd = 0;
 
         for ($index = 0; $index < $length; $index++) {
-            if ($this->_isVowelAt($word, $index)) {
+            if (!$this->_isVowelAt($word, $index)) {
+                $seenConsonant = true;
+                continue;
+            }
+
+            if ($seenConsonant) {
                 $splitIndex = $index + 1;
                 while ($splitIndex < $length && $this->_isVowelAt($word, $splitIndex)) {
                     $splitIndex++;
                 }
-                return $splitIndex;
+
+                if ($splitIndex < $length) {
+                    return $splitIndex;
+                }
+
+                return intdiv($length, 2);
             }
+
+            $initialVowelEnd = $index + 1;
+        }
+
+        if ($initialVowelEnd > 0) {
+            return $initialVowelEnd;
         }
 
         return intdiv($length, 2);
@@ -246,7 +264,7 @@ class Satrovacki
 
     /**
      * @param array{0:int,1:string} $item
-     * @return array{0:float,1:int,2:int,3:int}
+     * @return array{0:int,1:float,2:int,3:int}
      */
     private function scoreCandidate(array $item, float $half): array
     {
@@ -255,16 +273,16 @@ class Satrovacki
         $startsWithConsonant = ($candidate !== '' && !$this->_isVowelAt($candidate, 0)) ? 1 : 0;
 
         return [
+            -$startsWithConsonant,
             abs($splitIndex - $half),
             -$secondIsVowel,
-            -$startsWithConsonant,
             $splitIndex,
         ];
     }
 
     /**
-     * @param array{0:float,1:int,2:int,3:int} $left
-     * @param array{0:float,1:int,2:int,3:int} $right
+     * @param array{0:int,1:float,2:int,3:int} $left
+     * @param array{0:int,1:float,2:int,3:int} $right
      */
     private function scoreLessThan(array $left, array $right): bool
     {

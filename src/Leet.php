@@ -45,7 +45,9 @@ final class Leet
     /** @var array<string, string> */
     public const BASIC_LEET_PROFILE = [
         'a' => '4',
+        'b' => '8',
         'e' => '3',
+        'g' => '6',
         'i' => '1',
         'o' => '0',
         's' => '5',

@@ -78,6 +78,14 @@ final class UtrovackiTest extends TestCase
         $this->assertSame('bazen', $this->encoder->decode('bazen'));
     }
 
+    public function testDecodeHandlesAmbiguousInfixOccurrences(): void
+    {
+        $this->assertSame('zakon', $this->encoder->decode('ukonzazanje'));
+        $this->assertSame('zakonodavac', $this->encoder->decode('ukonodavaczazanje'));
+        $this->assertSame('baza', $this->encoder->decode('uzazabanje'));
+        $this->assertSame('oaza', $this->encoder->decode('uzazaoanje'));
+    }
+
     public function testCanDecodeWord(): void
     {
         $this->assertTrue($this->encoder->canDecodeWord('uzenzabanje'));

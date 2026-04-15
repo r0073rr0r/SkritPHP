@@ -40,7 +40,7 @@ final class SatrovackiTest extends TestCase
 
     public function testPunctuationAndNumbers(): void
     {
-        $this->assertSame('123, jdea!', $this->encoder->encode('123, ajde!'));
+        $this->assertSame('123, deaj!', $this->encoder->encode('123, ajde!'));
     }
 
     public function testMinWordLength(): void

@@ -73,7 +73,7 @@ final class SkritTest extends TestCase
         $this->assertSame('leet', $leetMode);
         $this->assertSame('zenba', $satro);
         $this->assertSame('uzenzabanje', $utro);
-        $this->assertSame('23nb4', $leet);
+        $this->assertSame('23n84', $leet);
     }
 
     public function testLeetFullComplexityPassthrough(): void

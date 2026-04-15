@@ -32,6 +32,7 @@ final class LeetTest extends TestCase
         $full = Leet::getLeetProfile('full');
 
         $this->assertSame('23m00n 24k0n m470r1', Leet::applyLeet('Zemun zakon matori', $basic, density: 1.0));
+        $this->assertSame('8463r', Leet::applyLeet('bager', $basic, density: 1.0));
         $this->assertSame('4I3[><j2', Leet::applyLeet('abcxyz', $full));
     }
 

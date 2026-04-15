@@ -42,20 +42,20 @@ final class LeetrovackiTest extends TestCase
     {
         $encoder = new Leetrovacki(baseMode: 'satro', leetDensity: 1.0);
         $this->assertSame('m00n23', $encoder->encode('zemun'));
-        $this->assertSame('23nb4', $encoder->encode('bazen'));
+        $this->assertSame('23n84', $encoder->encode('bazen'));
     }
 
     public function testAllSatroModuleExamplesInSatroMode(): void
     {
         $encoder = new Leetrovacki(baseMode: 'satro', leetDensity: 1.0);
         $cases = [
-            'Beograd' => 'Gr4db30',
+            'Beograd' => '6r4d830',
             'Zemun zakon matori' => 'M00n23 k0n24 70r1m4',
-            'riba ribi grize rep' => 'b4r1 b1r1 23gr1 pr3',
+            'riba ribi grize rep' => '84r1 81r1 236r1 pr3',
             'Земун закон матори' => 'М00н23 к0н24 70р1м4',
             'Zemun закон matori' => 'M00n23 к0н24 70r1m4',
-            'brate BRATE Brate' => '73br4 73BR4 73br4',
-            '123, ajde!' => '123, jd34!',
+            'brate BRATE Brate' => '738r4 738R4 738r4',
+            '123, ajde!' => '123, d34j!',
             'prst' => '57pr',
             'прст' => '57пр',
         ];

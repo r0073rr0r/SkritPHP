@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.1.0 - 2026-04-15
+- Synced core behavior with Python `skrit` `v0.6.0`:
+  - `Leet` basic profile now includes `b -> 8` and `g -> 6`.
+  - `Satrovacki` split heuristics updated for vowel-initial words (`ajde -> deaj`) and decode candidate scoring now prioritizes consonant-initial candidates.
+  - `Utrovacki` decode parser now resolves ambiguous multiple `za` infix occurrences reliably (e.g. `ukonzazanje -> zakon`).
+- Updated unit/parity expectations to match new leet and satro outputs.
+- Added large linguistic corpus fixture (`963` words) and invariant roundtrip test suite for `satro`, `utro`, and `leet`.
+- Added research/linguistic documentation files under `docs/`:
+  - `Leetrovacki - Linguistic Analysis.md`
+  - `Литровачки_-_Лингвистичка_Анализа.md`
+
 ## 1.0.0 - 2026-04-13
 - First stable public release of `SkritPHP`.
 - Includes full PHP port of Skrit core modules and unified router:
