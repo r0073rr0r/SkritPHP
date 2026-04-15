@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.1.1 - 2026-04-15
+- Migrated `phpunit.xml` to the current PHPUnit 10.5 schema.
+- Removed PHPUnit runner deprecation about deprecated XML configuration schema.
+- No runtime/library behavior changes (test infrastructure hotfix only).
+
 ## 1.1.0 - 2026-04-15
 - Synced core behavior with Python `skrit` `v0.6.0`:
   - `Leet` basic profile now includes `b -> 8` and `g -> 6`.
